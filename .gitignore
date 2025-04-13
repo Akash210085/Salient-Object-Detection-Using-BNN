@@ -1,0 +1,14 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore environment files
+.env
+
+# Ignore frontend dependencies
+sod-frontend/node_modules/
+sod-frontend/dist/
+
+# Ignore backend caches and compiled files
+sod-backend/__pycache__/
+sod-backend/*.pyc
