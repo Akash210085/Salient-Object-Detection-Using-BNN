@@ -30,12 +30,20 @@ export default function App() {
 
     const formData = new FormData();
     formData.append("file", file);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 30s timeout
 
     try {
       const res: Response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/process-image`, {
         method: "POST",
         body: formData,
+        signal: controller.signal,
       });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        throw new Error("Server error");
+      }
       const blob: Blob = await res.blob();
       setOutputImage(URL.createObjectURL(blob));
     } catch (err: unknown) {
