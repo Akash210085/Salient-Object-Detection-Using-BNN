@@ -26,7 +26,7 @@ app = FastAPI()
 # Allow requests from frontend (React runs on localhost:5173)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://salient-object-detection-using-bnn-1.onrender.com"],  # Replace "*" with specific domains in production
+    allow_origins=["*"],  # Replace "*" with specific domains in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
