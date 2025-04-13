@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-
 import { ImageUp } from 'lucide-react';
 import HashLoader from "react-spinners/HashLoader";
 export default function App() {
