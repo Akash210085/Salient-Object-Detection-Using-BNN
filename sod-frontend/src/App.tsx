@@ -32,7 +32,7 @@ export default function App() {
     formData.append("file", file);
 
     try {
-      const res: Response = await fetch("http://localhost:8000/process-image", {
+      const res: Response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/process-image`, {
         method: "POST",
         body: formData,
       });
