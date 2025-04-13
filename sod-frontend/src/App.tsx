@@ -15,7 +15,6 @@ export default function App() {
   interface FileUploadEvent extends React.ChangeEvent<HTMLInputElement> {
     target: HTMLInputElement & { files: FileList };
   }
-
   const handleUpload = async (e: FileUploadEvent): Promise<void> => {
     const file = e.target.files[0];
 
@@ -29,6 +28,9 @@ export default function App() {
 
     const formData = new FormData();
     formData.append("file", file);
+
+    console.log("Sending request to:", `${import.meta.env.VITE_BACKEND_URL}/process-image`);
+    console.log("File being sent:", file);
 
     try {
       const res: Response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/process-image`, {
